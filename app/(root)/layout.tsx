@@ -5,3 +5,5 @@ const RootLayout = () => {
         <div>Layout</div>
     )
 }
+
+export default RootLayout;
