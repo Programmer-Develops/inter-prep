@@ -108,4 +108,4 @@ const InterviewCard = async ({
   );
 };
 
-export default InterviewCard; 
+export default InterviewCard;
