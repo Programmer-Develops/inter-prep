@@ -100,7 +100,7 @@ export async function signOut() {
 export async function getCurrentUser(): Promise<User | null> {
   const cookieStore = await cookies();
 
-  const sessionCookie = cookieStore.get("session")?.value ?? null;  
+  const sessionCookie = cookieStore.get("session")?.value;  
   if (!sessionCookie) return null;
 
   try {
