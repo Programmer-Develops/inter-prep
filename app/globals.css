@@ -128,8 +128,52 @@
 }
 
 @layer base {
+  /* Cyberpunk Purple Scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-dark-300);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-200) 0%,
+      var(--color-primary-100) 50%,
+      #c084fc 100%
+    );
+    border-radius: 6px;
+    border: 2px solid var(--color-dark-300);
+    box-shadow: 
+      0 0 4px rgba(202, 193, 254, 0.8),
+      inset 0 0 4px rgba(202, 193, 254, 0.8);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      135deg,
+      #c084fc 0%,
+      var(--color-primary-200) 50%,
+      var(--color-primary-100) 100%
+    );
+    box-shadow: 
+      0 0 8px rgba(202, 193, 254, 0.9),
+      inset 0 0 4px rgba(255, 255, 255, 0.8);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-dark-300);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--color-dark-300);
+  }
+
+  /* Firefox scrollbar */
   * {
-    @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-200) var(--color-dark-300);
   }
   body {
     @apply bg-background text-foreground;
