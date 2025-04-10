@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
+:root {
   /* Success Colors - More vibrant green */
   --color-success-100: #4ade80;
   --color-success-200: #22c55e;
