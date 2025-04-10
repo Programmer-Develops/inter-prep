@@ -14,12 +14,16 @@ const Feedback = async ({ params }: RouteParams) => {
   const { id } = await params;
   const user = await getCurrentUser();
 
+  if (!user?.id) {
+    redirect("/"); // Redirect if user ID is not available
+  }
+
   const interview = await getInterviewById(id);
   if (!interview) redirect("/");
 
   const feedback = await getFeedbackByInterviewId({
     interviewId: id,
-    userId: user?.id!,
+    userId: user.id, // Safe to use now since we checked above
   });
 
   return (
