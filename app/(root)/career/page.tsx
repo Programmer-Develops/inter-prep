@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { getCurrentUser } from "@/lib/actions/auth.action";
+import Image from "next/image";
 
 const REMOTE_OK_API_URL = "https://remoteok.io/api";
 
@@ -45,6 +46,13 @@ const Career = async () => {
             <h2>Career</h2>
             <p className="text-lg">Explore career opportunities.</p>
           </div>
+          <Image
+                    src="/robot.png"
+                    alt="robo-dude"
+                    width={400}
+                    height={400}
+                    className="max-sm:hidden"
+                  />
         </section>
 
         <section className="flex flex-col gap-6 mt-8">
