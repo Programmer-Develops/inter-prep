@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { getCurrentUser } from "@/lib/actions/auth.action";
 
-const GITHUB_JOBS_API_URL = "https://jobs.github.com/positions.json";
+const REMOTE_OK_API_URL = "https://remoteok.io/api";
 
 // Define the Job type
 interface Job {
@@ -12,19 +12,19 @@ interface Job {
   applyUrl: string;
 }
 
-// Function to fetch job data from GitHub Jobs API
+// Function to fetch job data from Remote OK API
 async function fetchJobs(): Promise<Job[]> {
-  const response = await fetch(`${GITHUB_JOBS_API_URL}?description=developer&location=remote`);
+  const response = await fetch(REMOTE_OK_API_URL);
   if (!response.ok) {
     throw new Error("Failed to fetch jobs");
   }
 
   const data = await response.json();
-  return data.map((job: any) => ({
+  return data.slice(1).map((job: any) => ({
     id: job.id,
-    title: job.title,
+    title: job.position,
     company: job.company,
-    location: job.location,
+    location: job.location || "Remote",
     applyUrl: job.url,
   }));
 }
