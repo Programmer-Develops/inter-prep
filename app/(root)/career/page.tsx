@@ -24,6 +24,9 @@ const Career = async () => {
                     </Button> */}
                 </div>
             </section>
+
+            <section className="flex flex-col gap-6 mt-8">
+            </section>
         </>
     )
 
