@@ -8,7 +8,11 @@ const Career = async () => {
         return <p>Please log in to continue.</p>
     }
 
-    
+    return (
+        <>
+            
+        </>
+    )
 
 }
 
