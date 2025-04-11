@@ -13,6 +13,15 @@ interface Job {
   applyUrl: string;
 }
 
+// Define the API response type
+interface RemoteOkJob {
+  id: string;
+  position: string;
+  company: string;
+  location?: string;
+  url: string;
+}
+
 // Function to fetch job data from Remote OK API
 async function fetchJobs(): Promise<Job[]> {
   const response = await fetch(REMOTE_OK_API_URL);
@@ -20,8 +29,8 @@ async function fetchJobs(): Promise<Job[]> {
     throw new Error("Failed to fetch jobs");
   }
 
-  const data = await response.json();
-  return data.slice(1).map((job: any) => ({
+  const data: RemoteOkJob[] = await response.json();
+  return data.slice(1).map((job) => ({
     id: job.id,
     title: job.position,
     company: job.company,
@@ -47,12 +56,12 @@ const Career = async () => {
             <p className="text-lg">Explore career opportunities.</p>
           </div>
           <Image
-                    src="/robot.png"
-                    alt="robo-dude"
-                    width={400}
-                    height={400}
-                    className="max-sm:hidden"
-                  />
+            src="/robot.png"
+            alt="robo-dude"
+            width={400}
+            height={400}
+            className="max-sm:hidden"
+          />
         </section>
 
         <section className="flex flex-col gap-6 mt-8">
