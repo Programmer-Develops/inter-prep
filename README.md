@@ -21,18 +21,8 @@
 - **Frontend**: [Next.js](https://nextjs.org) (React Framework)
 - **Backend**: Firebase (Authentication & Database)
 - **Styling**: Tailwind CSS
-- **APIs**: Remote OK API for job listings
+- **APIs**: Gemini API for interview, Vapi AI for voice agent, Remote OK API for job listings
 - **Hosting**: Vercel
-
----
-
-## 📸 Screenshots
-
-### Home Page
-![Home Page](https://via.placeholder.com/800x400) <!-- Replace with actual screenshot -->
-
-### Interview Practice
-![Interview Practice](https://via.placeholder.com/800x400) <!-- Replace with actual screenshot -->
 
 ---
 
