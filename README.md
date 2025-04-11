@@ -1,7 +1,5 @@
 # InterPrep - AI-Powered Interview Preparation Platform
 
-![InterPrep Logo](https://via.placeholder.com/150) <!-- Replace with your logo URL -->
-
 **InterPrep** is an AI-powered platform designed to help job seekers prepare for interviews with confidence. Practice real-world interview questions, receive instant feedback, and explore career opportunities—all in one place.
 
 ---
