@@ -41,6 +41,10 @@ async function Home() {
           <Button asChild className="btn-primary max-sm:w-full">
             <Link href="/interview">Start an Interview</Link>
           </Button>
+
+          <Button asChild className="btn-primary max-sm:w-full">
+            <Link href="/career">Career</Link> 
+          </Button>
         </div>
 
         <Image
