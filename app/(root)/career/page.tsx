@@ -1,31 +1,32 @@
 import { Button } from "@/components/ui/button";
 import { getCurrentUser } from "@/lib/actions/auth.action";
 
-// Mock function to fetch job data (replace with actual API call)
-async function fetchJobs() {
-  return [
-    {
-      id: 1,
-      title: "Frontend Developer",
-      company: "TechCorp",
-      location: "Remote",
-      applyUrl: "https://techcorp.com/jobs/frontend-developer",
-    },
-    {
-      id: 2,
-      title: "Backend Engineer",
-      company: "CodeBase",
-      location: "San Francisco, CA",
-      applyUrl: "https://codebase.com/jobs/backend-engineer",
-    },
-    {
-      id: 3,
-      title: "UI/UX Designer",
-      company: "Designify",
-      location: "New York, NY",
-      applyUrl: "https://designify.com/jobs/ui-ux-designer",
-    },
-  ];
+const GITHUB_JOBS_API_URL = "https://jobs.github.com/positions.json";
+
+// Define the Job type
+interface Job {
+  id: string;
+  title: string;
+  company: string;
+  location: string;
+  applyUrl: string;
+}
+
+// Function to fetch job data from GitHub Jobs API
+async function fetchJobs(): Promise<Job[]> {
+  const response = await fetch(`${GITHUB_JOBS_API_URL}?description=developer&location=remote`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch jobs");
+  }
+
+  const data = await response.json();
+  return data.map((job: any) => ({
+    id: job.id,
+    title: job.title,
+    company: job.company,
+    location: job.location,
+    applyUrl: job.url,
+  }));
 }
 
 const Career = async () => {
@@ -34,40 +35,45 @@ const Career = async () => {
     return <p>Please log in to continue.</p>;
   }
 
-  const jobs = await fetchJobs(); // Fetch job data
+  try {
+    const jobs = await fetchJobs(); // Fetch job data
 
-  return (
-    <>
-      <section className="card-cta">
-        <div className="flex flex-col gap-6 max-w-lg">
-          <h2>Career</h2>
-          <p className="text-lg">Explore career opportunities.</p>
-        </div>
-      </section>
+    return (
+      <>
+        <section className="card-cta">
+          <div className="flex flex-col gap-6 max-w-lg">
+            <h2>Career</h2>
+            <p className="text-lg">Explore career opportunities.</p>
+          </div>
+        </section>
 
-      <section className="flex flex-col gap-6 mt-8">
-        <h2>Available Jobs</h2>
-        <div className="job-list flex flex-col gap-4">
-          {jobs.map((job) => (
-            <div
-              key={job.id}
-              className="job-card p-4 border rounded-lg shadow-sm flex flex-col gap-2"
-            >
-              <h3 className="text-xl font-semibold">{job.title}</h3>
-              <p className="text-sm text-gray-600">
-                {job.company} - {job.location}
-              </p>
-              <Button asChild className="btn-primary max-sm:w-full">
-                <a href={job.applyUrl} target="_blank" rel="noopener noreferrer">
-                  Apply Now
-                </a>
-              </Button>
-            </div>
-          ))}
-        </div>
-      </section>
-    </>
-  );
+        <section className="flex flex-col gap-6 mt-8">
+          <h2>Available Jobs</h2>
+          <div className="job-list flex flex-col gap-4">
+            {jobs.map((job: Job) => (
+              <div
+                key={job.id}
+                className="job-card p-4 border rounded-lg shadow-sm flex flex-col gap-2"
+              >
+                <h3 className="text-xl font-semibold">{job.title}</h3>
+                <p className="text-sm text-gray-600">
+                  {job.company} - {job.location}
+                </p>
+                <Button asChild className="btn-primary max-sm:w-full">
+                  <a href={job.applyUrl} target="_blank" rel="noopener noreferrer">
+                    Apply Now
+                  </a>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </section>
+      </>
+    );
+  } catch (error) {
+    console.error("Error fetching jobs:", error);
+    return <p>Failed to load jobs. Please try again later.</p>;
+  }
 };
 
 export default Career;
