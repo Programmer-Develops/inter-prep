@@ -13,7 +13,7 @@ const Career = async () => {
             <section className="card-cta">
                 <div className="flex flex-col gap-6 max-w-lg">
                     <h2>Career</h2>
-                    <p className="text-lg">Explore career opportunities and resources.</p>
+                    <p className="text-lg">Explore career opportunities .</p>
 
                     {/* <Button asChild className="btn-primary max-sm:w-full">
                         <Link href="/interview">Start an Interview</Link>
