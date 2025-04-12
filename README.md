@@ -143,3 +143,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - Thanks to [Remote OK](https://remoteok.io) for providing job data.
 
 ---
+
+# Video
+
+- https://drive.google.com/file/d/1F_ROrUi4xF6QspbA17gGm_0ij4_ZWD_H/view?usp=sharing
+
+---
