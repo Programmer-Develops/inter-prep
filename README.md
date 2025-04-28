@@ -137,14 +137,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-## 🙌 Acknowledgments
-
-- Thanks to Gemini and Vapi ai.
-- Thanks to [Remote OK](https://remoteok.io) for providing job data.
-- Thanks to **Javascript Mastery** course.
-
----
-
 # Video
 
 - https://drive.google.com/file/d/1F_ROrUi4xF6QspbA17gGm_0ij4_ZWD_H/view?usp=sharing
